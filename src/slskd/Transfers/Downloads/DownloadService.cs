@@ -1160,7 +1160,6 @@ namespace slskd.Transfers.Downloads
                 }
                 else
                 {
-
                     // ToLocalFilename chops all but the containing folder off of the path and localizes slashes, so:
                     // some/long/remote/path/folder/file.ext -> folder/file.ext -> download_directory/folder/file.ext
                     // this is "legacy" behavior that will be familiar to most Soulseek users

@@ -49,14 +49,10 @@ namespace slskd.Transfers
         public TransferDirection Direction { get; init; }
 
         /// <summary>
-        ///     Gets or sets the size of the file.
-        /// </summary>
-        public long Size { get; set; }
-
-        /// <summary>
         ///     Gets the remote filename.
         /// </summary>
         public string Filename { get; init; }
+        public long Size { get; set; }
         public long StartOffset { get; init; }
 
         public TransferStates State { get; set; } = TransferStates.None;
