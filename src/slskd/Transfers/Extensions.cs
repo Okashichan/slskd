@@ -39,6 +39,7 @@ namespace slskd.Transfers
             return new Transfer()
             {
                 BatchId = transfer.BatchId,
+                DestinationDirectory = transfer.DestinationDirectory,
                 Id = transfer.Id,
                 Username = transfer.Username,
                 Direction = transfer.Direction,
