@@ -1,4 +1,4 @@
-// <copyright file="User.cs" company="JP Dillingham">
+// <copyright file="EnqueueDownloadBatchRequest.cs" company="JP Dillingham">
 //           ▄▄▄▄     ▄▄▄▄     ▄▄▄▄
 //     ▄▄▄▄▄▄█  █▄▄▄▄▄█  █▄▄▄▄▄█  █
 //     █__ --█  █__ --█    ◄█  -  █
@@ -30,31 +30,28 @@
 //   ╰───────────────────────────────────────────╶──── ─ ─── ─  ── ──┈  ┈
 // </copyright>
 
-namespace slskd.Users
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace slskd.Transfers.API;
+
+public record EnqueueDownloadBatchRequest
 {
-    public record User
-    {
-        /// <summary>
-        ///     Gets the username of the user.
-        /// </summary>
-        public string Username { get; init; }
+    public Guid? BatchId { get; init; }
+    public Guid? SearchId { get; init; }
 
-        /// <summary>
-        ///     Gets the user's configured group.
-        /// </summary>
-        /// <remarks>
-        ///     This is the group under which the username appears in config, *not* the group derived at runtime.
-        /// </remarks>
-        public string Group { get; init; }
+    [Required]
+    [StringLength(500, MinimumLength = 1)]
+    public string Username { get; init; }
+    public List<EnqueueDownloadBatchItem> Files { get; init; } = [];
+}
 
-        /// <summary>
-        ///     Gets the user's statistics.
-        /// </summary>
-        public Statistics Statistics { get; init; }
+public record EnqueueDownloadBatchItem
+{
+    [Required]
+    public string Filename { get; set; }
 
-        /// <summary>
-        ///     Gets the user's status.
-        /// </summary>
-        public Status Status { get; init; }
-    }
+    [Range(0, int.MaxValue)]
+    public long Size { get; set; }
 }

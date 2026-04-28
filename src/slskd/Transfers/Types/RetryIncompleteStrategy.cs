@@ -1,4 +1,4 @@
-// <copyright file="User.cs" company="JP Dillingham">
+// <copyright file="RetryIncompleteStrategy.cs" company="JP Dillingham">
 //           ▄▄▄▄     ▄▄▄▄     ▄▄▄▄
 //     ▄▄▄▄▄▄█  █▄▄▄▄▄█  █▄▄▄▄▄█  █
 //     █__ --█  █__ --█    ◄█  -  █
@@ -30,31 +30,20 @@
 //   ╰───────────────────────────────────────────╶──── ─ ─── ─  ── ──┈  ┈
 // </copyright>
 
-namespace slskd.Users
+namespace slskd.Transfers;
+
+/// <summary>
+///     Strategy for retrying incomplete files.
+/// </summary>
+public enum RetryIncompleteStrategy
 {
-    public record User
-    {
-        /// <summary>
-        ///     Gets the username of the user.
-        /// </summary>
-        public string Username { get; init; }
+    /// <summary>
+    ///     Overwrite the existing file.
+    /// </summary>
+    Overwrite = 0,
 
-        /// <summary>
-        ///     Gets the user's configured group.
-        /// </summary>
-        /// <remarks>
-        ///     This is the group under which the username appears in config, *not* the group derived at runtime.
-        /// </remarks>
-        public string Group { get; init; }
-
-        /// <summary>
-        ///     Gets the user's statistics.
-        /// </summary>
-        public Statistics Statistics { get; init; }
-
-        /// <summary>
-        ///     Gets the user's status.
-        /// </summary>
-        public Status Status { get; init; }
-    }
+    /// <summary>
+    ///     Resume the transfer using the size of the incomplete file as the initial offset.
+    /// </summary>
+    Resume = 1,
 }

@@ -73,6 +73,11 @@
 #   download:
 #     slots: 500
 #     speed_limit: 1000
+#     retry:
+#       incomplete: resume # 'overwrite' or 'resume'
+#       attempts: 3
+#       delay: 5000 # initial time between retries, in milliseconds
+#       max_delay: 60000 # maximum time between retries, in milliseconds
 #   groups:
 #     default:
 #       upload:
@@ -112,6 +117,8 @@
 #     blacklisted:
 #       members:
 #         - <username to blacklist>
+#       patterns:
+#         - <regular expression to match against usernames>
 #       cidrs:
 #         - <CIDR to blacklist, e.g. 255.255.255.255/32>
 #     user_defined:
