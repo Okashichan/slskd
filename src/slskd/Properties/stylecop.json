@@ -6,7 +6,12 @@
       "usingDirectivesPlacement": "insideNamespace"
     },
     "maintainabilityRules": {
-      "topLevelTypes": ["class", "delegate", "enum", "interface"]
+      "topLevelTypes": [
+        "class",
+        "delegate",
+        "enum",
+        "interface"
+      ]
     },
     "documentationRules": {
       "documentPrivateElements": false,
