@@ -46,5 +46,10 @@ namespace slskd.Transfers.API
         ///     Gets or sets the size of the file.
         /// </summary>
         public long Size { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the destination directory.
+        /// </summary>
+        public string DestinationDirectory { get; set; }
     }
 }
