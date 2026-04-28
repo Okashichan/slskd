@@ -462,12 +462,24 @@ namespace slskd
             // normalize path separators
             var localizedRemoteFilename = remoteFilename.LocalizePath();
 
-            var parts = localizedRemoteFilename.Split(Path.DirectorySeparatorChar, StringSplitOptions.RemoveEmptyEntries).ToList();
+            var parts = localizedRemoteFilename.Split(Path.DirectorySeparatorChar, StringSplitOptions.RemoveEmptyEntries)
+                .Where(p => p != "." && p != "..")
+                .ToList();
 
             // remove the @username prefix if it exists
             if (parts.Count > 0 && parts[0].StartsWith('@'))
             {
-                parts.RemoveAt(0);
+                if (!string.IsNullOrWhiteSpace(username))
+                {
+                    if (parts[0].Equals($"@{username}", StringComparison.OrdinalIgnoreCase))
+                    {
+                        parts.RemoveAt(0);
+                    }
+                }
+                else if (!parts[0].Contains(' '))
+                {
+                    parts.RemoveAt(0);
+                }
             }
 
             // remove drive letter if it exists (e.g. C:)

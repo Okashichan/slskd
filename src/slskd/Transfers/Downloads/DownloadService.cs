@@ -1136,7 +1136,12 @@ namespace slskd.Transfers.Downloads
 
                 if (!string.IsNullOrWhiteSpace(transfer.DestinationDirectory))
                 {
-                    string relativePath = transfer.DestinationDirectory;
+                    var safeSegments = transfer.DestinationDirectory
+                        .Split(new[] { System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries)
+                        .Where(p => p != "." && p != "..")
+                        .Select(p => p.ReplaceInvalidFileNameCharacters());
+
+                    string relativePath = System.IO.Path.Combine(safeSegments.ToArray());
                     string remoteRelativePath = transfer.Filename.ToLocalRelativeFilename(format, false, null, stripCount);
                     string remoteDirectory = System.IO.Path.GetDirectoryName(remoteRelativePath);
 
