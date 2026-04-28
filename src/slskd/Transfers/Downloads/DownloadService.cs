@@ -1,4 +1,4 @@
-// <copyright file="DownloadService.cs" company="JP Dillingham">
+﻿// <copyright file="DownloadService.cs" company="JP Dillingham">
 //           ▄▄▄▄     ▄▄▄▄     ▄▄▄▄
 //     ▄▄▄▄▄▄█  █▄▄▄▄▄█  █▄▄▄▄▄█  █
 //     █__ --█  █__ --█    ◄█  -  █

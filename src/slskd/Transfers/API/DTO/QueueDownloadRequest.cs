@@ -1,4 +1,4 @@
-// <copyright file="QueueDownloadRequest.cs" company="JP Dillingham">
+﻿// <copyright file="QueueDownloadRequest.cs" company="JP Dillingham">
 //           ▄▄▄▄     ▄▄▄▄     ▄▄▄▄
 //     ▄▄▄▄▄▄█  █▄▄▄▄▄█  █▄▄▄▄▄█  █
 //     █__ --█  █__ --█    ◄█  -  █

@@ -1,4 +1,4 @@
-// <copyright file="Migrator.cs" company="JP Dillingham">
+﻿// <copyright file="Migrator.cs" company="JP Dillingham">
 //           ▄▄▄▄     ▄▄▄▄     ▄▄▄▄
 //     ▄▄▄▄▄▄█  █▄▄▄▄▄█  █▄▄▄▄▄█  █
 //     █__ --█  █__ --█    ◄█  -  █

@@ -1,4 +1,4 @@
-// <copyright file="TransfersController.cs" company="JP Dillingham">
+﻿// <copyright file="TransfersController.cs" company="JP Dillingham">
 //           ▄▄▄▄     ▄▄▄▄     ▄▄▄▄
 //     ▄▄▄▄▄▄█  █▄▄▄▄▄█  █▄▄▄▄▄█  █
 //     █__ --█  █__ --█    ◄█  -  █
